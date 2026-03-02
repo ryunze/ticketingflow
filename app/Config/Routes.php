@@ -20,6 +20,9 @@ $routes->group('manager', ['filter' => 'role:2'], static function($route) {
 
 $routes->group('staff', ['filter' => 'role:3'], static function($route) {
     $route->get('dashboard', 'Staff\Dashboard::index', ['as' => 'staff.dashboard']);
+    $route->get('tasks', 'Staff\Task::index', ['as' => 'staff.tasks']);
+    $route->get('task/create', 'Staff\Task::create', ['as' => 'staff.task.create']);
+    $route->post('task/store', 'Staff\Task::store', ['as' => 'staff.task.store']);
 });
 
 $routes->group('support', ['filter' => 'role:4'], static function($route) {

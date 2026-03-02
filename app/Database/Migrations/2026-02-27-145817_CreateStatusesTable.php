@@ -12,7 +12,7 @@ class CreateStatusesTable extends Migration
             'id' => [
                 'type'              => 'INT',
                 'unsigned'          => true,
-                'auto_increment'    => true,
+                'auto_increment'    => true
             ],
             'name' => [
                 'type'          => 'VARCHAR',
