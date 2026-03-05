@@ -12,7 +12,17 @@
                 <?php foreach ($data['tasks'] as $task) : ?>
                 <tr>
                     <td><?= $task['title'] ?></td>
-                    <td><?= $task['status_name'] ?></td>
+                    <td>
+                        <form action="<?= base_url('support/task/update-status/'.$task['task_id']) ?>" method="post">
+                            <div class="d-flex">
+                                <select name="status_id" class="form-control">
+                                    <option value="5">In Progress</option>
+                                    <option value="6">Done</option>
+                                </select>
+                                <button type="submit" class="btn btn-success ms-2">Update</button>
+                            </div>
+                        </form>
+                    </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>

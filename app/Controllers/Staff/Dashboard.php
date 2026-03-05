@@ -9,6 +9,6 @@ class Dashboard extends BaseController
 {
     public function index()
     {   
-        return view('staff/dashboard');
+        return view('staff/task/index');
     }
 }

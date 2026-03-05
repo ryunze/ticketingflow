@@ -9,6 +9,7 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        return 'Support Dashboard';
+        // return view('support/task/index');
+        return redirect()->route('support.tasks');
     }
 }
