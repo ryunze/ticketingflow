@@ -10,13 +10,15 @@
 </head>
 
 <body>
-    <div class="position-absolute w-100 h-100 bg-dark d-flex">
+    <div class="position-absolute w-100 h-100 d-flex">
         <div class="col-md-3 m-auto">
             <?php if (session()->getFlashData('error') != NULL) : ?>
                 <div class="alert alert-danger" role="alert">
                     <?= session()->getFlashData('error') ?>
                 </div>
             <?php endif ?>
+            <h2 class="mb-0">Login</h2>
+            <p class="form-text">Masuk dengan akun sesuai posisi.</p>
             <div class="card">
                 <div class="card-body">
                     <form method="post" action="/auth/login">
@@ -28,7 +30,7 @@
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" name="password" id="password">
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-outline-success">Submit</button>
                     </form>
                 </div>
             </div>
