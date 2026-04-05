@@ -25,16 +25,16 @@ class RoleFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session('isLoggedIn') || is_null(session('isLoggedIn'))) {
-            return redirect()->route('auth.login');
-        }
+        // if (!session('isLoggedIn') || is_null(session('isLoggedIn'))) {
+        //     return redirect()->route('auth.login');
+        // }
 
-        if (!is_null($arguments)) {
-            $allowedRole = $arguments[0];
-            if (session('role_id') != $allowedRole) {
-                return redirect()->route('auth.login');
-            }
-        }
+        // if (!is_null($arguments)) {
+        //     $allowedRole = $arguments[0];
+        //     if (session('role_id') != $allowedRole) {
+        //         return redirect()->route('auth.login');
+        //     }
+        // }
 
     }
 

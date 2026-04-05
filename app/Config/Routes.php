@@ -35,3 +35,7 @@ $routes->group('support', ['filter' => 'role:4'], static function($route) {
     $route->get('tasks', 'Support\Task::index', ['as' => 'support.tasks']);
     $route->post('task/update-status/(:num)', 'Support\Task::updateStatus/$1', ['as' => 'staff.task.update-status']);
 });
+
+$routes->group('api/v1/tasks', ['filter' => 'role:3'], static function($route) {
+    $route->delete('/', 'Api\Task::cancel');
+});
