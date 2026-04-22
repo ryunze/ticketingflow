@@ -32,7 +32,8 @@ class CreateTaskTable extends Migration
             ],
             'status_id' => [
                 'type'          => 'INT',
-                'unsigned'      => true
+                'unsigned'      => true,
+                'null'          => true
             ],
             'created_at' => [
                 'type' => 'DATETIME DEFAULT CURRENT_TIMESTAMP',

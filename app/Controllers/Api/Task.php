@@ -2,14 +2,33 @@
 
 namespace App\Controllers\Api;
 
-use App\Controllers\BaseController;
-use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\RESTful\ResourceController;
+use App\Models\TaskModel;
 
-class Task extends BaseController
+class Task extends ResourceController
 {
-    public function cancel()
+
+    protected $modelName = 'App\Models\TaskModel';
+    protected $format    = 'json';
+
+    public function delete($id)
     {
-        $request = $this->request->getJSON(true);
-        var_dump($request);
+
+        $dataTask = $this->model->where(['id' => $id])->first();
+
+        if (is_null($dataTask)) {
+            return $this->failNotFound("Task $id tidak ditemukan");
+        }
+
+        $this->model->delete(['id' => $id]);
+
+        if (!$this->model->affectedRows()) {
+            $this->failForbidden("Gagal hapus task $id");
+        }
+
+        return $this->respondDeleted([
+            'message' => "Task $id berhasil dihapus"
+        ]);
+
     }
 }
